@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 请替换页面标题和简介 -->
+  <title>你的姓名 · 个人学术主页</title>
+  <meta name="description" content="你的姓名的个人学术主页：研究方向、论文、项目与联系方式。">
+  <style>
+    :root { --ink:#17332e; --muted:#526660; --accent:#176b55; --paper:#faf9f5; --line:#dce3dc; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:90px; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif; line-height:1.8; }
+    a { color:var(--accent); text-underline-offset:4px; }
+    a:hover { text-decoration:underline; }
+    a:focus-visible { outline:3px solid #bc7b36; outline-offset:5px; }
+    .wrap { width:min(1060px,90%); margin:auto; }
+    .skip { position:absolute; top:-100px; padding:10px; background:white; z-index:10; }
+    .skip:focus { top:10px; }
+    header { position:sticky; top:0; z-index:5; background:rgba(250,249,245,.97); border-bottom:1px solid var(--line); }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:18px 0; }
+    .brand { color:var(--ink); font-weight:750; text-decoration:none; white-space:nowrap; }
+    nav { display:flex; flex-wrap:wrap; gap:22px; }
+    nav a { font-size:14px; text-decoration:none; }
+    .hero { display:grid; grid-template-columns:1fr 250px; gap:65px; align-items:center; padding:90px 0 75px; }
+    .eyebrow { font-size:12px; font-weight:700; letter-spacing:3px; color:var(--accent); }
+    h1 { font-size:clamp(38px,6vw,62px); line-height:1.2; letter-spacing:-2px; margin:20px 0; }
+    .role { font-size:19px; margin:0 0 20px; }
+    .intro { color:var(--muted); max-width:610px; }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+    .button { display:inline-block; padding:9px 20px; border:1px solid var(--accent); border-radius:6px; text-decoration:none; font-weight:600; }
+    .primary { background:var(--accent); color:white; }
+    .portrait { aspect-ratio:1; border-radius:50%; background:#e4ebe1; border:1px solid #d0dccd; display:grid; place-content:center; text-align:center; }
+    .portrait span { font-family:Georgia,serif; font-size:65px; line-height:1.2; }
+    .portrait small { margin-top:12px; color:var(--muted); }
+    .portrait img { width:100%; height:100%; object-fit:cover; border-radius:50%; }
+    section { border-top:1px solid var(--line); padding:42px 0 48px; }
+    .section-heading { display:flex; gap:18px; align-items:baseline; margin-bottom:22px; }
+    .number { color:var(--accent); font-size:13px; font-weight:700; }
+    h2 { font-size:26px; margin:0; }
+    h3 { font-size:18px; margin:0 0 8px; }
+    p { margin:0 0 14px; }
+    .note { color:var(--muted); font-size:14px; }
+    .research { display:grid; grid-template-columns:repeat(3,1fr); gap:30px; }
+    .research article { padding-left:16px; border-left:3px solid #bdd0bf; }
+    article p { color:var(--muted); }
+    .entry { display:grid; grid-template-columns:100px 1fr; gap:22px; padding:22px 0; border-bottom:1px solid var(--line); }
+    .entry:last-child { border-bottom:0; padding-bottom:0; }
+    .tag { font-size:13px; color:var(--accent); padding-top:3px; }
+    .contact { background:#edf1e9; padding:26px; border-radius:8px; }
+    .contact p:last-child { margin-bottom:0; }
+    footer { padding:28px 0; color:var(--muted); font-size:13px; border-top:1px solid var(--line); }
+    @media(max-width:700px) {
+      .nav { align-items:flex-start; flex-direction:column; gap:10px; }
+      nav { gap:15px; }
+      .hero { grid-template-columns:1fr; gap:30px; padding:45px 0; }
+      .portrait { width:160px; grid-row:1; }
+      .portrait span { font-size:44px; }
+      .research { grid-template-columns:1fr; gap:22px; }
+      .entry { grid-template-columns:1fr; gap:6px; }
+      html { scroll-padding-top:135px; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">跳转到主要内容</a>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#main">你的姓名 / YOUR NAME</a>
+      <nav aria-label="主导航">
+        <a href="#about">简介</a><a href="#research">研究</a>
+        <a href="#publications">论文</a><a href="#projects">项目</a><a href="#contact">联系</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="wrap">
+    <div class="hero">
+      <div>
+        <div class="eyebrow">PERSONAL / ACADEMIC</div>
+        <h1>你好，我是<br>你的姓名。</h1>
+        <p class="role">你的职位或身份 · 你的学校 / 机构</p>
+        <p class="intro">在这里用两到三句话介绍自己：你关注什么问题，使用哪些方法，以及希望通过研究或实践实现什么目标。</p>
+        <div class="actions">
+          <a class="button primary" href="#research">了解我的研究</a>
+          <a class="button" href="#contact">联系我 ↗</a>
+        </div>
+      </div>
+      <!-- 如需头像，把整个 portrait div 替换为：
+      <div class="portrait"><img src="avatar.jpg" alt="你的姓名的个人照片"></div>
+      并把 avatar.jpg 上传到与 index.html 相同的目录。 -->
+      <div class="portrait" aria-label="个人头像占位区域"><span>姓名</span><small>YOUR NAME</small></div>
+    </div>
+    <section id="about" aria-labelledby="about-title">
+      <div class="section-heading"><span class="number">01</span><h2 id="about-title">个人简介</h2></div>
+      <p>【待填写】我目前在……从事……工作 / 学习，主要关注……。我的研究或实践结合……与……，探索……。</p>
+      <p>【待填写】此前，我在……获得……学位，参与过……项目。欢迎对相关方向感兴趣的朋友交流合作。</p>
+    </section>
+    <section id="research" aria-labelledby="research-title">
+      <div class="section-heading"><span class="number">02</span><h2 id="research-title">研究方向</h2></div>
+      <p class="note">以下为内容示例，请替换成自己的实际研究方向。</p>
+      <div class="research">
+        <article><h3>方向一 · 人工智能</h3><p>介绍你关注的具体问题、采用的方法，以及研究的应用场景。</p></article>
+        <article><h3>方向二 · 数据科学</h3><p>介绍你处理的数据类型，以及希望从数据中回答的核心问题。</p></article>
+        <article><h3>方向三 · 交叉研究</h3><p>介绍不同学科如何结合，以及你希望探索的新方法或新应用。</p></article>
+      </div>
+    </section>
+    <section id="publications" aria-labelledby="publications-title">
+      <div class="section-heading"><span class="number">03</span><h2 id="publications-title">论文与成果</h2></div>
+      <p class="note">以下为占位内容；没有已发表论文时，可以改为“学习笔记”或删除本节。</p>
+      <article class="entry">
+        <div class="tag">年份待填写</div>
+        <div><h3>【待填写】论文标题</h3><p>作者列表 · 期刊或会议名称</p><p class="note">用一句话介绍这项工作的核心问题与贡献。添加真实论文地址后，可将标题改为链接。</p></div>
+      </article>
+      <article class="entry">
+        <div class="tag">年份待填写</div>
+        <div><h3>【待填写】另一项研究成果</h3><p>作者列表 · 发表平台</p><p class="note">在这里补充成果简介、开放数据或代码信息。</p></div>
+      </article>
+    </section>
+    <section id="projects" aria-labelledby="projects-title">
+      <div class="section-heading"><span class="number">04</span><h2 id="projects-title">精选项目</h2></div>
+      <article class="entry">
+        <div class="tag">项目 01</div>
+        <div><h3>【待填写】项目名称</h3><p>描述项目解决的问题、你承担的工作，以及项目的实际结果。</p><p class="note">技术与工具：填写项目实际使用的技术。</p></div>
+      </article>
+      <article class="entry">
+        <div class="tag">项目 02</div>
+        <div><h3>【待填写】项目名称</h3><p>可以展示开源工具、课程作业、数据分析或个人作品。</p><p class="note">添加真实地址后，可将项目名称改为链接。</p></div>
+      </article>
+    </section>
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="section-heading"><span class="number">05</span><h2 id="contact-title">联系方式</h2></div>
+      <div class="contact">
+        <p>欢迎围绕共同的研究兴趣、项目和合作机会联系我。</p>
+        <!-- 请同时替换 href 中的邮箱和页面显示的邮箱 -->
+        <p>邮箱：<a href="mailto:yourname@example.com">yourname@example.com</a></p>
+        <p>GitHub：填写你的 GitHub 主页地址</p>
+        <p>单位：填写你的学校 / 机构</p>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap">© 你的姓名 · 个人学术主页</div></footer>
+</body>
+</html>
